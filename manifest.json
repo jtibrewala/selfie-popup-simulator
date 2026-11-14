@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SelfiePopup",
   "version": "1.0",
-  "description": "Screen and camera recorder overlay.",
+  "description": "Draggable webcam bubble overlay for any web page.",
   "permissions": [
     "camera",
     "microphone",

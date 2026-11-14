@@ -2,8 +2,8 @@
 // It listens for messages from the Popup to toggle the camera overlay.
 
 (function() {
-  if (window.hasLoomCloneInjected) return;
-  window.hasLoomCloneInjected = true;
+  if (window.hasSelfiePopupInjected) return;
+  window.hasSelfiePopupInjected = true;
 
   let iframe = null;
   let bubbleRect = null;   // latest bubble bounds reported by the iframe
@@ -55,7 +55,7 @@
     if (request.action === 'SET_SIZE') {
       currentSize = request.size; // remember so the popup can re-sync on reopen
       if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.postMessage({ type: 'SELFIE_SET_SIZE', size: request.size }, '*');
+        iframe.contentWindow.postMessage({ type: 'SELFIE_SET_SIZE', size: request.size }, new URL(iframe.src).origin);
         sendResponse({ ok: true });
       } else {
         sendResponse({ ok: false });
@@ -83,6 +83,11 @@
         iframe.style.border = 'none';
         iframe.style.zIndex = '2147483647'; // Max z-index
         iframe.style.pointerEvents = 'none'; // Let clicks pass through empty areas
+        // Chrome paints a transparent iframe opaque (white) when its color-scheme
+        // differs from the host page's (e.g. a dark-mode site). Our iframe page is
+        // light, so declare that here to keep the overlay see-through.
+        iframe.style.colorScheme = 'light';
+        iframe.style.background = 'transparent';
         iframe.allow = "camera"; // Allow camera permission (video-only selfie bubble)
 
         // Point to our React app in 'camera' mode

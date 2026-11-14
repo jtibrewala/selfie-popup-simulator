@@ -21,3 +21,6 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Session notes (Mozart-managed, local only)
+SESSION-NOTES.md

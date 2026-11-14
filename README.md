@@ -108,3 +108,9 @@ Branch of enhancements and extension fixes.
 - **Size control:** wired the popup's size selector through `content.js` (`SET_SIZE` → `postMessage`) to the camera.
 - **Draggable in the overlay iframe:** the content script hit-tests the pointer against the bubble's reported rect and toggles the iframe's `pointer-events`, so the click-through overlay is grabbable only over the bubble.
 - **Size persistence:** the popup remembers and re-displays the current bubble size on reopen (tracked in `content.js`, returned via `GET_STATUS`).
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).

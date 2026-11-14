@@ -15,6 +15,7 @@ export const ExtensionCamera: React.FC = () => {
   // Receive bubble-size changes relayed from the popup via the content script.
   useEffect(() => {
     const onMessage = (e: MessageEvent) => {
+      if (e.source !== window.parent) return;
       const data = e.data;
       if (data && data.type === 'SELFIE_SET_SIZE') {
         const next = data.size as BubbleSize;
