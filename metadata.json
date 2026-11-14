@@ -1,0 +1,8 @@
+{
+  "name": "SelfiePopup Simulator",
+  "description": "A webcam overlay tool simulating the SelfiePopup Chrome Extension experience using React and MediaStream APIs.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}

@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "SelfiePopup",
+  "version": "1.0",
+  "description": "Screen and camera recorder overlay.",
+  "permissions": [
+    "camera",
+    "microphone",
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "index.html?mode=popup",
+    "default_title": "Open Camera"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
