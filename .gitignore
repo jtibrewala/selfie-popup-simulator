@@ -24,3 +24,4 @@ yarn-error.log*
 
 # Session notes (Mozart-managed, local only)
 SESSION-NOTES.md
+.last-session.json
